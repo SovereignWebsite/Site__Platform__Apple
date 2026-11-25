@@ -1,6 +1,9 @@
 // Writes the site's pages: the live pages (one design) and a full preview of each design under /design/dN/.
 // Run from the repository root: node docs/gen/gen.mjs   (no dependencies). Facts live in SRC and in each page's body.
-import { writeFileSync, mkdirSync, rmSync } from 'node:fs';
+import { writeFileSync, mkdirSync, rmSync, readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+// A short content hash of a stylesheet, so a browser that cached an older copy at the same address fetches the new one.
+const HASH = (f) => createHash('sha256').update(readFileSync(`site/assets/designs/${f}.css`)).digest('hex').slice(0, 10);
 const HOST = 'https://apple.platform.sovereignweb.site';
 const LIVE = 'd1';                       // the design the live pages use until the owner picks
 const READ = '25 November 2026';
@@ -309,8 +312,8 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : ''}<meta property="og:t
 <meta name="twitter:description" content="${esc(p.desc)}">
 <meta name="twitter:image" content="${HOST}/assets/share/card-1200x630.jpg">
 <link rel="canonical" href="${url}">
-<link rel="stylesheet" href="/assets/designs/base.css">
-<link rel="stylesheet" href="/assets/designs/${design}.css">
+<link rel="stylesheet" href="/assets/designs/base.css?v=${HASH('base')}">
+<link rel="stylesheet" href="/assets/designs/${design}.css?v=${HASH(design)}">
 </head>`;
 };
 function render(design, base, path, noindex) {
