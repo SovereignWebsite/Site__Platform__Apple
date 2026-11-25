@@ -191,19 +191,28 @@ const PAGES = {
 <li>Privacy manifests: ${NS} (the page returned only its title).</li>
 </ul></section>` },
 
-  '/our-work/': { title: 'Our own work on Apple', mark: 'Scope 3', desc: 'Our owner-mode iOS app and the Sovereign Website app: only what has been confirmed, with the rest marked not stated.',
+  '/our-work/': { title: 'Our own work on Apple', mark: 'Scope 3', desc: 'Our owner-mode view and the Sovereign Website app inside the VoiceDebrief iOS app: what the team has confirmed, with the rest marked not stated.',
     body: () => `<h1>Our own work on Apple</h1>
-<p>This page covers a.ios's owner-mode app and the Sovereign Website app. We write only what the team that builds them has confirmed to this site. Today that is very little.</p>
-<section><h2>Confirmed</h2>
-<ul><li>An iOS demo of the Sovereign Website app is planned for Thursday 26 November 2026, labelled R7. That date comes from this site's brief, not from Apple.</li></ul></section>
-<section><h2>Not stated yet</h2>
+<div class="note"><p>Everything on this page was reported to this site by the team's agent a.ios on 25 November 2026 (00:50 UTC), through a.maestro. We have not read the code ourselves. Where it says nothing, this page says ${NS}.</p></div>
+<section><h2>Where it lives</h2>
+<p>Both features are inside the VoiceDebrief iOS app, in the public repository <a href="https://github.com/VoiceDebrief/VoiceDebrief__App__iOS">github.com/VoiceDebrief/VoiceDebrief__App__iOS</a> (code under Apache 2.0, content under CC BY 4.0). It runs on iPhone and iPad with iOS 26, is written in SwiftUI and uses the Apple SDK only. It uses Apple's on-device models only: SpeechAnalyzer for transcripts and the Foundation Models framework for text. There is no API key and no backend of ours.${c('s7', 's8')}</p></section>
+<section><h2>Owner mode (R6)</h2>
+<p>A section for one person, the site's owner. It shows every agent from the biggest to the smallest, with its status, what it is doing, what it waits for and its home repository. It also shows the latest websites, videos, briefs and decision slides, and the decisions waiting for the owner. The owner answers there, or uses "talk to this page", typed or spoken, to reach the agent that made it. Decisions and the owner's own actions are listed apart.</p>
 <ul>
-<li>What the owner-mode app does: ${NS}.</li>
-<li>What the Sovereign Website app does on iOS: ${NS}.</li>
-<li>Build, TestFlight or App Store state: ${NS}.</li>
-<li>Which Apple technologies they use: ${NS}.</li>
-</ul>
-<p>We have asked the team for its public material and will add only what it confirms.</p></section>` },
+<li>It reads one JSON contract, <code>owner.feed/v1</code>, from three sources: a demo feed with invented data, published public feeds, and the owner's own encrypted vault.</li>
+<li>Answers are sealed to an agent's lane. Live data and sending are limited to devices the owner registers with their own key. The app checks the owner's grant against a pinned owner fingerprint, which is not yet pinned.</li>
+</ul></section>
+<section><h2>Sites, the Sovereign Website app (R7)</h2>
+<p>This is tier 1 of the app. You scan a Sovereign Website's QR code, which carries a key the site's keeper issued and which goes to the Keychain. You see the site in a web view, pick what your comment is about, speak (transcribed on the device) or type, add up to four photos and send. The request is signed and sealed as the site's own send page does it and added to the keeper's lane. The keeper, an agent, answers; the app opens the reply on the device and says when the site has changed.</p>
+<p>Tiers 2 (edits on the device with Apple Intelligence, through tools) and 3 (a site from photos and a theme) are proposed, not built.</p>
+<p>A demo of the Sovereign Website app on iOS is planned for Thursday 26 November 2026.</p></section>
+<section><h2>Build and TestFlight state</h2>
+<ul>
+<li>The work is on the branch <code>work/sites</code> and is green in continuous integration (build plus unit tests on iPhone and iPad simulators) at commit <code>ee83b1a</code>.</li>
+<li>None of it has run on a real device yet.</li>
+<li>It is not on the main development branch and not in TestFlight. A green push there uploads a TestFlight build, and that waits for the owner's yes.</li>
+<li>The App Store: ${NS}.</li>
+</ul></section>` },
 
   '/sources/': { title: 'Sources', mark: 'Evidence', desc: 'Every Apple page this guide uses, with the date the page shows and the date we read it.',
     body: () => `<h1>Sources</h1>
@@ -215,6 +224,8 @@ ${SRC.map((s, i) => `<tr id="${s[0]}"><th scope="row">${i + 1}</th><td><a href="
 <h2>Opened, but no usable text</h2>
 <p>These pages loaded but gave us only a title or nothing useful, so nothing on this site rests on them.</p>
 <ul>${EMPTY.map((e) => `<li><a href="${e[0]}">${esc(e[0])}</a>: ${esc(e[1])} (read ${READ})</li>`).join('\n')}</ul>
+<h2>From our own team</h2>
+<p>The "Our own work" page rests on a message from the team's agent, a.ios, on 25 November 2026, not on a page we read. The repository it points to is <a href="https://github.com/VoiceDebrief/VoiceDebrief__App__iOS">github.com/VoiceDebrief/VoiceDebrief__App__iOS</a>. We have not read its code.</p>
 <p>Our own pages: the dates above are when we read Apple's pages, not when Apple wrote them. Apple's logos, product images and trade dress are not used here.</p>` },
 };
 
