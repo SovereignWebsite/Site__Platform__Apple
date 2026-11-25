@@ -12,8 +12,8 @@ mkdirSync('site/assets/designs/shots', { recursive: true });
 const b = await chromium.launch();
 for (const id of ['d1', 'd2', 'd3', 'd4', 'd5']) {
   const ph = await (await b.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, colorScheme: 'light' })).newPage();
-  await ph.goto(`${base}/design/${id}/`); await ph.screenshot({ path: `site/assets/designs/shots/${id}-phone.jpg`, type: 'jpeg', quality: 70, clip: { x: 0, y: 0, width: 390, height: 844 } });
+  await ph.goto(`${base}/design/${id}/`); await ph.addStyleTag({ content: '.design-bar{display:none!important}' }); await ph.screenshot({ path: `site/assets/designs/shots/${id}-phone.jpg`, type: 'jpeg', quality: 70, clip: { x: 0, y: 0, width: 390, height: 844 } });
   const dk = await (await b.newContext({ viewport: { width: 1100, height: 680 }, colorScheme: 'light' })).newPage();
-  await dk.goto(`${base}/design/${id}/apple-intelligence/`); await dk.screenshot({ path: `site/assets/designs/shots/${id}-desktop.jpg`, type: 'jpeg', quality: 70 });
+  await dk.goto(`${base}/design/${id}/apple-intelligence/`); await dk.addStyleTag({ content: '.design-bar{display:none!important}' }); await dk.screenshot({ path: `site/assets/designs/shots/${id}-desktop.jpg`, type: 'jpeg', quality: 70 });
 }
 await b.close(); srv.close();

@@ -314,7 +314,7 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : ''}<meta property="og:t
 </head>`;
 };
 function render(design, base, path, noindex) {
-  B = base;
+  B = base; PREVIEW = noindex;
   const p = PAGES[path];
   const nav = NAV.map(([h, l]) => `<a href="${h === '/design/' ? h : base + h}"${h === path ? ' aria-current="page"' : ''}>${l}</a>`).join('\n    ');
   const canonical = noindex ? (path === '/' ? '/' : path) : (base + path);
@@ -332,7 +332,7 @@ ${FAMILY}
 </header>
 <aside class="notice" aria-label="Independence notice"><p>${NOTICE}</p></aside>
 <main id="main">
-${p.mark ? `<div class="mark">${esc(p.mark)}</div>\n` : ''}${withToc(p)}
+${designBar(design, path)}${p.mark ? `<div class="mark">${esc(p.mark)}</div>\n` : ''}${withToc(p)}
 </main>
 <footer>
 <nav class="site-links" aria-label="About this site">
@@ -354,6 +354,17 @@ function withToc(p) {
   const toc = `<nav class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul>${items.map(([id, t]) => `<li><a href="#${id}">${esc(t)}</a></li>`).join('')}</ul></nav>`;
   return html.replace('</h1>', '</h1>\n' + toc);
 }
+function designBar(cur, path) {
+  if (path === '/design/') return '';
+  const cards = DESIGNS.map(([id, name]) => {
+    const here = id === cur;
+    const href = (here && cur === LIVE && !PREVIEW) ? path : `/design/${id}${path}`;
+    return `<li><a href="${href}"${here ? ' aria-current="true"' : ''}><span class="thumbs"><img src="/assets/designs/shots/${id}-phone.jpg" width="49" height="106" alt="" loading="lazy"><img src="/assets/designs/shots/${id}-desktop.jpg" width="110" height="68" alt="" loading="lazy"></span><span class="nm">${name}${here ? ' (showing)' : ''}${id === LIVE ? ' (live)' : ''}</span></a></li>`;
+  }).join('');
+  return `<aside class="design-bar" aria-label="Choose a design"><p class="bar-title"><strong>Choose a design</strong> <span>Five directions are open. Each card opens this page in that design. <a href="/design/">See them larger</a> or <a href="https://github.com/SovereignWebsite/Site__Platform__Apple/issues/new?title=Design%20choice">tell us your pick</a>.</span></p><ul>${cards}</ul></aside>
+`;
+}
+let PREVIEW = false;
 const out = (file, s) => { mkdirSync(file.replace(/\/[^/]*$/, ''), { recursive: true }); writeFileSync(file, s); };
 rmSync('site/design', { recursive: true, force: true });
 for (const path of Object.keys(PAGES)) {
