@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For developers | Apple as a platform (unofficial)</title>
+<meta name="description" content="The Foundation Models framework and what an app can do with Apple Intelligence, from developer.apple.com pages read on 25 November 2026.">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Apple as a platform (unofficial)">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://apple.platform.sovereignweb.site/design/d4/developers/">
+<meta property="og:title" content="For developers">
+<meta property="og:description" content="The Foundation Models framework and what an app can do with Apple Intelligence, from developer.apple.com pages read on 25 November 2026.">
+<meta property="og:image" content="https://apple.platform.sovereignweb.site/assets/share/card-1200x630.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Apple as a platform (unofficial)">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="For developers">
+<meta name="twitter:description" content="The Foundation Models framework and what an app can do with Apple Intelligence, from developer.apple.com pages read on 25 November 2026.">
+<meta name="twitter:image" content="https://apple.platform.sovereignweb.site/assets/share/card-1200x630.jpg">
+<link rel="canonical" href="https://apple.platform.sovereignweb.site/design/d4/developers/">
+<link rel="stylesheet" href="/assets/designs/base.css">
+<link rel="stylesheet" href="/assets/designs/d4.css">
+</head>
+<body class="d4">
+<a class="skip" href="#main">Skip to content</a>
+<details class="family-credit">
+  <summary>Sovereign Website</summary>
+  <ul>
+    <li><a href="/start/">Start here</a></li>
+    <li><a href="/agents/">Use with your AI</a></li>
+    <li class="family-gap"><a href="/admin/">How this site was made</a></li>
+    <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
+    <li><a href="https://sovereignwebsite.org/">Principles</a></li>
+    <li><a href="https://sovereignwebsite.site/">Hosted</a></li>
+    <li><a href="https://hub.sovereignweb.site/">Hub</a></li>
+    <li><a href="https://agents.sovereignweb.site/">Agents</a></li>
+    <li><a href="https://vault.sovereignwebsite.site/">Vault</a></li>
+    <li><a href="https://agenticcells.ai/">AgentiCCells</a></li>
+    <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
+    <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
+  </ul>
+</details>
+<header class="top">
+  <a class="name" href="/design/d4/">Apple as a platform (unofficial)</a>
+  <nav class="own" aria-label="This guide">
+    <a href="/design/d4/">Home</a>
+    <a href="/design/d4/apple-intelligence/">Apple Intelligence</a>
+    <a href="/design/d4/models/">Models</a>
+    <a href="/design/d4/developers/" aria-current="page">For developers</a>
+    <a href="/design/d4/ios/">iOS platform</a>
+    <a href="/design/d4/our-work/">Our work</a>
+    <a href="/design/d4/sources/">Sources</a>
+    <a href="/design/">Designs</a>
+  </nav>
+</header>
+<aside class="notice" aria-label="Independence notice"><p>An independent Sovereign Website guide. Not Apple's site.</p></aside>
+<main id="main">
+<div class="mark">Scope 1</div>
+<h1>For developers: the Foundation Models framework</h1>
+<p>Apple calls it "a native Swift API that gives you direct access to Apple Foundation Models, on device and in Private Cloud Compute".<sup class="cite"><a href="/design/d4/sources/#s7" aria-label="Source 7">[7]</a></sup> It is also described as the way to reach "the same on-device model that powers Apple Intelligence".<sup class="cite"><a href="/design/d4/sources/#s9" aria-label="Source 9">[9]</a></sup></p>
+<section><h2>What it offers</h2>
+<ul>
+<li>Named capabilities: guided generation, tool calling, image understanding and Dynamic Profiles.<sup class="cite"><a href="/design/d4/sources/#s8" aria-label="Source 8">[8]</a></sup></li>
+<li>Dynamic Profiles are "declarative APIs for continuously updating your session's model, tools, and instructions on the fly". Each profile has its own model, temperature, reasoning level and toolset, and the session transcript is shared across switches.<sup class="cite"><a href="/design/d4/sources/#s8" aria-label="Source 8">[8]</a></sup></li>
+<li>On device, apps can "work without internet connectivity".<sup class="cite"><a href="/design/d4/sources/#s8" aria-label="Source 8">[8]</a></sup></li>
+<li>It can work with other models: Apple lists Core AI, MLX, Claude and Gemini providers, each linked to a GitHub repository.<sup class="cite"><a href="/design/d4/sources/#s8" aria-label="Source 8">[8]</a></sup></li>
+<li>Also named: an Evaluations framework, an <code>fm</code> command line tool in macOS 27 and a Python SDK.<sup class="cite"><a href="/design/d4/sources/#s7" aria-label="Source 7">[7]</a></sup><sup class="cite"><a href="/design/d4/sources/#s8" aria-label="Source 8">[8]</a></sup></li>
+<li>Vision tools such as text recognition and barcode reading are described as on-device.<sup class="cite"><a href="/design/d4/sources/#s9" aria-label="Source 9">[9]</a></sup></li>
+</ul></section>
+<section><h2>Cost and limits</h2>
+<ul>
+<li>Developers in the small business programme with fewer than 2 million first-time downloads can use Apple Foundation Models on Private Cloud Compute "at no cloud API cost".<sup class="cite"><a href="/design/d4/sources/#s7" aria-label="Source 7">[7]</a></sup><sup class="cite"><a href="/design/d4/sources/#s8" aria-label="Source 8">[8]</a></sup></li>
+<li>Some server-side features have daily usage limits, and expanded access "will be available for a fee in the future". The fee: <span class="todo">not stated</span>.<sup class="cite"><a href="/design/d4/sources/#s8" aria-label="Source 8">[8]</a></sup></li>
+<li>Apple says users' data in Private Cloud Compute "is not stored or accessible to Apple or anyone else".<sup class="cite"><a href="/design/d4/sources/#s8" aria-label="Source 8">[8]</a></sup></li>
+</ul></section>
+<section><h2>Other things an app can plug into</h2>
+<p>Apple's developer page also names App Intents, Image Playground, Shortcuts, Visual Intelligence, Write with Siri and Genmoji.<sup class="cite"><a href="/design/d4/sources/#s7" aria-label="Source 7">[7]</a></sup> Image Playground images are "generated on Private Cloud Compute, so photos are never stored or shared".<sup class="cite"><a href="/design/d4/sources/#s7" aria-label="Source 7">[7]</a></sup></p></section>
+<section><h2>What Apple's pages do not say</h2>
+<p>The minimum operating system version, the device requirements for the framework, how to check whether the model is available, class names and code samples: <span class="todo">not stated</span>. The framework's documentation page returned only its title when we read it, so we have not copied any code from it.</p></section>
+</main>
+<footer>
+<nav class="site-links" aria-label="About this site">
+  <a href="/start/">Start here</a>
+  <a href="/agents/">Use with your AI</a>
+  <a href="/admin/">How this site was made</a>
+  <a href="/policy/">How this site is governed</a>
+</nav>
+An independent Sovereign Website guide. Not Apple's site. Read on 25 November 2026; see <a href="/design/d4/sources/">sources</a>. A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__Platform__Apple">github.com/SovereignWebsite/Site__Platform__Apple</a>.
+</footer>
+</body>
+</html>

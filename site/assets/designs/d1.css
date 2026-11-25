@@ -1,0 +1,10 @@
+/* D1 Quiet paper: one calm reading column, warm paper, green accent. */
+:root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#55544f;--accent:#2f6b4f;--line:#e4e1d8}
+@media (prefers-color-scheme:dark){:root{--bg:#141513;--fg:#ecebe6;--muted:#aeaca4;--accent:#7fc3a0;--line:#2c2d29}}
+.top{max-width:44rem;margin:0 auto;padding:2.2rem 1rem 0}.own{margin-left:auto}
+.notice{max-width:44rem;margin:1rem auto 0;border-radius:6px}
+main{max-width:44rem;margin:0 auto;padding:4vh 1rem 4rem}
+footer{max-width:44rem;margin:3rem auto 0}
+h1{font-size:clamp(2rem,6vw,3rem)}h2{font-size:1.3rem}
+.tiles{grid-template-columns:minmax(0,1fr)}.tiles a{border-width:0 0 1px;border-radius:0;padding:.8rem 0}
+@media (max-width:40rem){.own{margin:0;width:100%}}

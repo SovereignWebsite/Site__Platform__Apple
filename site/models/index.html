@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The models | Apple as a platform (unofficial)</title>
+<meta name="description" content="Apple's on-device and server models and Private Cloud Compute, from Apple's own pages, with the dates of each source.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Apple as a platform (unofficial)">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://apple.platform.sovereignweb.site/models/">
+<meta property="og:title" content="The models">
+<meta property="og:description" content="Apple's on-device and server models and Private Cloud Compute, from Apple's own pages, with the dates of each source.">
+<meta property="og:image" content="https://apple.platform.sovereignweb.site/assets/share/card-1200x630.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Apple as a platform (unofficial)">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The models">
+<meta name="twitter:description" content="Apple's on-device and server models and Private Cloud Compute, from Apple's own pages, with the dates of each source.">
+<meta name="twitter:image" content="https://apple.platform.sovereignweb.site/assets/share/card-1200x630.jpg">
+<link rel="canonical" href="https://apple.platform.sovereignweb.site/models/">
+<link rel="stylesheet" href="/assets/designs/base.css">
+<link rel="stylesheet" href="/assets/designs/d1.css">
+</head>
+<body class="d1">
+<a class="skip" href="#main">Skip to content</a>
+<details class="family-credit">
+  <summary>Sovereign Website</summary>
+  <ul>
+    <li><a href="/start/">Start here</a></li>
+    <li><a href="/agents/">Use with your AI</a></li>
+    <li class="family-gap"><a href="/admin/">How this site was made</a></li>
+    <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
+    <li><a href="https://sovereignwebsite.org/">Principles</a></li>
+    <li><a href="https://sovereignwebsite.site/">Hosted</a></li>
+    <li><a href="https://hub.sovereignweb.site/">Hub</a></li>
+    <li><a href="https://agents.sovereignweb.site/">Agents</a></li>
+    <li><a href="https://vault.sovereignwebsite.site/">Vault</a></li>
+    <li><a href="https://agenticcells.ai/">AgentiCCells</a></li>
+    <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
+    <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
+  </ul>
+</details>
+<header class="top">
+  <a class="name" href="/">Apple as a platform (unofficial)</a>
+  <nav class="own" aria-label="This guide">
+    <a href="/">Home</a>
+    <a href="/apple-intelligence/">Apple Intelligence</a>
+    <a href="/models/" aria-current="page">Models</a>
+    <a href="/developers/">For developers</a>
+    <a href="/ios/">iOS platform</a>
+    <a href="/our-work/">Our work</a>
+    <a href="/sources/">Sources</a>
+    <a href="/design/">Designs</a>
+  </nav>
+</header>
+<aside class="notice" aria-label="Independence notice"><p>An independent Sovereign Website guide. Not Apple's site.</p></aside>
+<main id="main">
+<div class="mark">Scope 1</div>
+<h1>The models, and Private Cloud Compute</h1>
+<div class="note"><p>Apple's model descriptions we could read are from 2024 and 2025. We found no Apple page giving the size of the 2026 models, so for those this guide says <span class="todo">not stated</span>.</p></div>
+<section><h2>On-device model</h2>
+<p>In June 2024 Apple described a "~3 billion parameter on-device language model".<sup class="cite"><a href="/sources/#s5" aria-label="Source 5">[5]</a></sup> Its July 2025 report describes a "~3B-parameter on-device model optimized for Apple silicon through architectural innovations such as KV-cache sharing and 2-bit quantization-aware training".<sup class="cite"><a href="/sources/#s6" aria-label="Source 6">[6]</a></sup></p></section>
+<section><h2>Server model</h2>
+<p>The 2025 report describes "a scalable server model built on a novel Parallel-Track Mixture-of-Experts (PT-MoE) transformer", for Apple's Private Cloud Compute platform. Its parameter count: <span class="todo">not stated</span>.<sup class="cite"><a href="/sources/#s6" aria-label="Source 6">[6]</a></sup> The 2024 post says the server model runs on Apple silicon servers with Private Cloud Compute.<sup class="cite"><a href="/sources/#s5" aria-label="Source 5">[5]</a></sup></p>
+<p>Languages the models support: the 2025 report says "multilingual, multimodal" and "several additional languages" without listing them.<sup class="cite"><a href="/sources/#s6" aria-label="Source 6">[6]</a></sup> For the languages of the features, see <a href="/apple-intelligence/">Apple Intelligence</a>.</p></section>
+<section><h2>Private Cloud Compute</h2>
+<p>Apple's security blog (June 2024) describes what it says Private Cloud Compute does:<sup class="cite"><a href="/sources/#s4" aria-label="Source 4">[4]</a></sup></p>
+<ul>
+<li>It runs on custom Apple silicon nodes using "a hardened subset of the foundations of iOS and macOS".</li>
+<li>The device encrypts the request "directly to the public keys of the PCC nodes" it has confirmed are valid. Load balancers and privacy gateways sit outside that trust boundary and do not have the keys.</li>
+<li>A third-party relay hides the device's source IP address.</li>
+<li>"User data is never available to Apple, even to staff with administrative access", and is "not retained in any form after the response is returned".</li>
+<li>There is no remote shell and no general-purpose logging. Only pre-specified, structured and audited logs and metrics can leave a node.</li>
+</ul>
+<p>For outside checking, the post says Apple would make software images of every production build "publicly available for security research", keep a transparency log, and provide a virtual research environment that runs a node on a Mac with Apple silicon. That post is written in the future tense, so this guide does not say those were all delivered: <span class="todo">not stated</span>.<sup class="cite"><a href="/sources/#s4" aria-label="Source 4">[4]</a></sup></p>
+<p>On training data, Apple says it does not use users' private personal data or interactions to train its foundation models unless they explicitly choose to help improve them.<sup class="cite"><a href="/sources/#s5" aria-label="Source 5">[5]</a></sup></p></section>
+</main>
+<footer>
+<nav class="site-links" aria-label="About this site">
+  <a href="/start/">Start here</a>
+  <a href="/agents/">Use with your AI</a>
+  <a href="/admin/">How this site was made</a>
+  <a href="/policy/">How this site is governed</a>
+</nav>
+An independent Sovereign Website guide. Not Apple's site. Read on 25 November 2026; see <a href="/sources/">sources</a>. A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__Platform__Apple">github.com/SovereignWebsite/Site__Platform__Apple</a>.
+</footer>
+</body>
+</html>

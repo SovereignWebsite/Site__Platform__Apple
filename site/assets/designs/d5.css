@@ -1,0 +1,14 @@
+/* D5 Poster: very large type, strong colour blocks, offset layout, amber and ink. */
+:root{--bg:#fff3d6;--fg:#1a1208;--muted:#44371c;--accent:#b23a05;--line:#1a1208;--card:#ffe3a0;--block:#1a1208;--onblock:#fff3d6;--body:19px/1.55 "Helvetica Neue",Arial,system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#1b1405;--fg:#ffe9b8;--muted:#e4cf9c;--accent:#ff9a5c;--line:#ffe9b8;--card:#2c2108;--block:#ffe9b8;--onblock:#1b1405}}
+.top{padding:2.6rem 1.5rem .8rem;border-bottom:6px solid var(--line)}.own{margin-left:auto;text-transform:uppercase;letter-spacing:.06em;font-size:.85rem}
+.own a{text-decoration:none}
+.notice{background:var(--block);color:var(--onblock);text-align:center}
+main{max-width:64rem;margin:0 auto 0 0;padding:2.5rem 1.5rem 4rem 1.5rem}
+main>*{max-width:46rem}main>.tiles{max-width:none}
+h1{font-size:clamp(3rem,13vw,7.5rem);line-height:.92;text-transform:uppercase;letter-spacing:-.03em;max-width:none}
+h2{font-size:1.9rem;text-transform:uppercase;letter-spacing:-.01em;border-top:6px solid var(--line);padding-top:.6rem}
+.mark{background:var(--block);color:var(--onblock);display:inline-block;padding:.15rem .6rem}
+.tiles{grid-template-columns:repeat(auto-fit,minmax(min(14rem,100%),1fr));gap:0;border:4px solid var(--line)}.tiles a{border:0;border-radius:0;border-right:4px solid var(--line);border-bottom:4px solid var(--line);margin:0 -4px -4px 0;padding:1.2rem}
+.tiles a:hover{background:var(--block)}.tiles a:hover span,.tiles a:hover strong{color:var(--onblock)}
+footer{padding:1rem 1.5rem;border-top:6px solid var(--line);margin-top:2rem}
