@@ -3,8 +3,8 @@
 State: handing over. Last pushed commit before these notes: 08603e9 on `dev` (version v0.1.10 served over http at commit 2583176 at the last check). `tools/check.sh` passed.
 
 ## Live
-- 10 content pages plus the picker: Home, Apple Intelligence, Models, For developers, Transcription, iOS platform, Our work, Sources, Choose a design. Live design: D1 Quiet paper. Every page carries "An independent Sovereign Website guide. Not Apple's site." and a "Choose a design" bar with real previews (standing rule from Dinis while designs are open).
-- 17 plus 2 Apple pages are listed on `/sources/` with the date read (25 November 2026), and 9 pages that returned only a title are listed as unusable.
+- Eight content pages (Home, Apple Intelligence, Models, For developers, Transcription, iOS platform, Our work, Sources) plus the Choose a design picker. Live design: D1 Quiet paper. Every page carries "An independent Sovereign Website guide. Not Apple's site." and a "Choose a design" bar with real previews (standing rule from Dinis while designs are open).
+- 19 pages are listed on `/sources/` with the date read (25 November 2026), and 9 pages that returned only a title are listed as unusable.
 
 ## Open, waiting on Dinis
 - The design pick. a.design and apple.a recommend D2 Manual for the live site and D5 Poster as the showpiece; round 2 closed, no round 3 needed. On his word: set `LIVE` in `docs/gen/gen.mjs`, regenerate, run `tools/check.sh`, push, tell sites.a. When a design is picked, the picker bar may be removed on his word.
