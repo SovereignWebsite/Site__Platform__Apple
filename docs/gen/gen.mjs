@@ -72,7 +72,13 @@ const PAGES = {
   '/': { title: 'Apple as a platform (unofficial)', mark: '', desc: "Apple Intelligence first, then iOS, on-device models, TestFlight and iCloud, and our own work on Apple, from Apple's public pages. Not affiliated with Apple.",
     body: () => `<h1>Apple as a platform</h1>
 <p>What Apple Intelligence is, what it gives a developer, and how iOS works as a platform for our own work. Every fact links to a page on Apple's own sites, with the date we read it. Where Apple does not say, this guide says ${NS}.</p>
-<div class="note glance"><p><strong>In Apple's words, read ${READ}:</strong> Apple's support page, published 8 November 2026, lists Apple Intelligence on iPhone 15 Pro and newer, on iPad and Mac with M1 or newer, and on Apple Vision Pro, in 16 languages.${c('s3')} For developers, the Foundation Models framework gives an app direct access to the on-device model, and apps can "work without internet connectivity".${c('s8')}</p></div>
+<nav class="guide-box" aria-label="In this guide"><p class="toc-title">In this guide</p><ol>
+<li><a href="${B}/apple-intelligence/">Apple Intelligence</a></li><li><a href="${B}/models/">The models</a></li><li><a href="${B}/developers/">For developers</a></li><li><a href="${B}/ios/">iOS as a platform</a></li><li><a href="${B}/our-work/">Our own work</a></li><li><a href="${B}/sources/">Sources</a></li></ol></nav>
+<dl class="facts" aria-label="Three facts from Apple's pages">
+<div><dt>Works on</dt><dd>iPhone 15 Pro and newer, iPad and Mac with M1 or newer, Apple Vision Pro.<span class="src">Apple Support, published 8 November 2026.${c('s3')}</span></dd></div>
+<div><dt>Languages</dt><dd>16, including English, French, German, Japanese, Korean and Spanish.<span class="src">Apple Support, published 8 November 2026.${c('s3')}</span></dd></div>
+<div><dt>For developers</dt><dd>Apps can "work without internet connectivity" using the on-device model.<span class="src">developer.apple.com, no date shown, read ${READ}.${c('s8')}</span></dd></div>
+</dl>
 <ul class="tiles">
 <li><a href="${B}/apple-intelligence/"><strong>Apple Intelligence</strong><span>What it is, which devices, languages and regions, and its limits.</span></a></li>
 <li><a href="${B}/models/"><strong>The models</strong><span>On-device, server and Private Cloud Compute.</span></a></li>

@@ -56,3 +56,10 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);font-si
 .nav-toggle:checked ~ .own{display:flex}
 .nav-toggle:focus-visible + .nav-btn{outline:3px solid var(--accent);outline-offset:2px}
 }
+
+.facts{margin:1.5rem 0;border-top:1px solid var(--line)}
+.facts>div{display:grid;grid-template-columns:8.5rem minmax(0,1fr);gap:.2rem 1rem;padding:.7rem 0;border-bottom:1px solid var(--line)}
+.facts dt{font-weight:700;color:var(--fg)}.facts dd{margin:0;color:var(--fg)}
+.facts .src{display:block;font-size:.85rem;color:var(--muted)}
+.guide-box{display:none}
+@media (max-width:479px){.facts>div{grid-template-columns:1fr}.top .name{flex:1 1 0;min-width:0}.nav-btn{flex:none}}

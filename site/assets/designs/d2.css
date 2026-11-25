@@ -16,3 +16,7 @@ h1{font-size:2rem}h2{font-size:1.2rem;border-bottom:1px solid var(--line);paddin
 h2{scroll-margin-top:5rem}
 @media (max-width:50rem){.top{position:sticky;top:0;z-index:20;max-height:80vh;overflow:auto}.toc ul{columns:1}}
 @media (max-width:479px){.nav-btn::after{content:" \25BE"}.nav-toggle:checked ~ .own{flex-direction:column}.nav-btn{background:var(--card)}}
+
+.guide-box{display:block;border:1px solid var(--line);background:var(--card);border-radius:8px;padding:.6rem 1rem;margin:0 0 1.5rem}
+.guide-box .toc-title{margin:0 0 .3rem;font-weight:700;color:var(--fg);font-size:.9rem}.guide-box ol{margin:0;padding-left:1.4rem;columns:2}.guide-box li{break-inside:avoid}
+@media (max-width:50rem){.guide-box ol{columns:1}}
