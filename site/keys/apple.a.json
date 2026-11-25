@@ -1,0 +1,17 @@
+{
+  "agent": "apple.a@SovereignWebsite.dinis",
+  "session": "https://claude.ai/code/session_018yvwtMgcVvXzU5RNZ7M2Qj",
+  "status": "active",
+  "fingerprint": "sha256:39b56cbe0d25fcfc",
+  "signing_fingerprint": "sha256:904b09111f60cfaf",
+  "ssh": "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJoSDEsONonDNgSFKfyyl98zou3UL7gfnTTFsNqSW4TI2qj+niKwSeTB943ODCJzd5tOXuz27d6joWC3cdB87zM=",
+  "bundle": {
+    "v": 1,
+    "encrypt": "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA6UiC9BDUFFUGrhL+ufMH\nrjoX9Dk7VK2Zw6urASx073QDj9n+ym7QEQw+oC24DIVHpiW4ErPf4zOy0JJvwyf0\ndjQu91HRbu9m5OBEuXiKZD+TFjqPnzp7jL334832xFruzpYcmR0DKQY6LwOn8J6/\nZumJGTGD5kAFObKqeZIrSP3LYndCxUUGyKsf6IBdYwNdSm5BIGHXtvh8exw2xh+b\nHcK5KoxkHjGjyz/O81FWUa8wV75FCmuHUO/DIfuEb2ugz3uvdn3jlwG1qUkrRlKK\nr18W1NZfqv1tjcfY++3YYNNFMW17ltOx0Z5e0HAmGQRKYwnwriMHa8F8DtxdhN0t\ngm6ru2maYJfUypcTUe1fMud1xJUkzUkabpDLmcGADpzffPJqwQQh43jv9kFC79mK\nVvVKedcS2LVA+ajicLQvxCcd81Jj5uTuZ3N4ymv1uNsPfkx1jlkyUbYiRuoFQkVa\ne5Io2MN+PG1XVZEkuyptCAlLEQad3PnfQBJHxfq2ThsKXy7vXsGjfiZEaV60xq0v\nrDtZPi8DTkrCejmyKqBLfMdZer4POJNG+uye+vxw/KqPMBiXLwHtT4HBmVzcnaBT\ns4vcnyNcmh8zFN9rOPPkgEeH/11qOHdnFxuprQQEVwxSQ3O4I+tQDBvDFgktZGG1\npFnSl5BrOUWMhIHLZ9xz478CAwEAAQ==\n-----END PUBLIC KEY-----\n",
+    "sign": "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEmhIMSw42icM2BIUp/LKX3zOi7dQv\nuB+dNMWw2pJbhMjaqP6eIrBJ5MH3jc4MInN3m05e7Pbt3qOhYLdx0HzvMw==\n-----END PUBLIC KEY-----\n",
+    "label": "apple-a-sovereignwebsite",
+    "fingerprint": "sha256:39b56cbe0d25fcfc",
+    "signing_fingerprint": "sha256:904b09111f60cfaf"
+  },
+  "how": "Made by the agent in its own session with sgit pki keygen (tools/setup-signing.sh). Only the public half is here. A session key: it ends with its session."
+}
