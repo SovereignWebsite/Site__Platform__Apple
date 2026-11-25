@@ -9,7 +9,7 @@ const DESIGNS = [
   ['d1', 'Quiet paper', 'One calm reading column on warm paper, green accent. Closest to the starting site.'],
   ['d2', 'Manual', 'A fixed side menu like a reference manual, blue accent, tighter type.'],
   ['d3', 'Tiles', 'A hub of large rounded cards, violet accent, generous space.'],
-  ['d4', 'Notebook', 'Monospace with numbered headings. Dark first; light follows your system.'],
+  ['d4', 'Notebook', 'Monospace with numbered headings. Always dark, whatever your system setting.'],
   ['d5', 'Poster', 'Very large type and strong colour blocks in amber and ink.'],
 ];
 // Every source: [id, url, what we used it for, date the page itself shows, note]
@@ -69,9 +69,10 @@ const c = (...ids) => ids.map((id) => `<sup class="cite"><a href="${B}/sources/#
 const NS = '<span class="todo">not stated</span>';
 
 const PAGES = {
-  '/': { title: 'Apple as a platform (unofficial)', mark: 'apple.platform.sovereignweb.site', desc: "Apple Intelligence first, then iOS, on-device models, TestFlight and iCloud, and our own work on Apple, from Apple's public pages. Not affiliated with Apple.",
+  '/': { title: 'Apple as a platform (unofficial)', mark: '', desc: "Apple Intelligence first, then iOS, on-device models, TestFlight and iCloud, and our own work on Apple, from Apple's public pages. Not affiliated with Apple.",
     body: () => `<h1>Apple as a platform</h1>
 <p>What Apple Intelligence is, what it gives a developer, and how iOS works as a platform for our own work. Every fact links to a page on Apple's own sites, with the date we read it. Where Apple does not say, this guide says ${NS}.</p>
+<div class="note glance"><p><strong>In Apple's words, read ${READ}:</strong> Apple's support page, published 8 November 2026, lists Apple Intelligence on iPhone 15 Pro and newer, on iPad and Mac with M1 or newer, and on Apple Vision Pro, in 16 languages.${c('s3')} For developers, the Foundation Models framework gives an app direct access to the on-device model, and apps can "work without internet connectivity".${c('s8')}</p></div>
 <ul class="tiles">
 <li><a href="${B}/apple-intelligence/"><strong>Apple Intelligence</strong><span>What it is, which devices, languages and regions, and its limits.</span></a></li>
 <li><a href="${B}/models/"><strong>The models</strong><span>On-device, server and Private Cloud Compute.</span></a></li>
@@ -230,23 +231,13 @@ ${SRC.map((s, i) => `<tr id="${s[0]}"><th scope="row">${i + 1}</th><td><a href="
 };
 
 const IDEA = (d) => {
-  // A small drawing of each direction. Our own shapes; no Apple imagery.
-  const P = { d1: ['#fbfaf7', '#2f6b4f', '#55544f'], d2: ['#f4f6f8', '#0b5cad', '#44546a'], d3: ['#f6f4fb', '#5a36c4', '#554d6c'], d4: ['#0d0f0c', '#8fe388', '#a4b49f'], d5: ['#fff3d6', '#b23a05', '#1a1208'] }[d];
-  const [bg, ac, tx] = P;
-  const bars = (x, y, w) => [0, 1, 2].map((i) => `<rect x="${x}" y="${y + i * 9}" width="${i === 2 ? w * 0.6 : w}" height="4" rx="2" fill="${tx}" opacity=".55"/>`).join('');
-  const body = {
-    d1: `<rect x="60" y="14" width="80" height="6" fill="${ac}"/><rect x="60" y="26" width="80" height="14" fill="${tx}"/>${bars(60, 50, 80)}${bars(60, 80, 80)}`,
-    d2: `<rect x="0" y="0" width="48" height="120" fill="${ac}" opacity=".18"/>${[0, 1, 2, 3].map((i) => `<rect x="8" y="${14 + i * 10}" width="32" height="5" rx="2" fill="${ac}"/>`).join('')}<rect x="60" y="14" width="100" height="10" fill="${tx}"/>${bars(60, 36, 130)}${bars(60, 66, 130)}`,
-    d3: `<rect x="14" y="12" width="172" height="14" fill="${tx}"/>${[0, 1, 2, 3, 4, 5].map((i) => `<rect x="${14 + (i % 3) * 59}" y="${36 + Math.floor(i / 3) * 40}" width="54" height="34" rx="9" fill="${ac}" opacity="${i % 2 ? .35 : .6}"/>`).join('')}`,
-    d4: `<rect x="30" y="12" width="14" height="5" fill="${ac}"/>${[0, 1, 2, 3, 4, 5].map((i) => `<rect x="30" y="${28 + i * 12}" width="${90 - (i % 3) * 18}" height="4" fill="${i % 3 === 0 ? ac : tx}" opacity=".8"/>`).join('')}`,
-    d5: `<rect x="10" y="12" width="180" height="36" fill="${tx}"/><rect x="10" y="56" width="90" height="50" fill="${ac}"/><rect x="104" y="56" width="86" height="50" fill="none" stroke="${tx}" stroke-width="4"/>`,
-  }[d];
-  return `<svg viewBox="0 0 200 120" role="img" aria-label="A sketch of the ${DESIGNS.find((x) => x[0] === d)[1]} layout"><rect width="200" height="120" fill="${bg}"/>${body}</svg>`;
+  const name = DESIGNS.find((x) => x[0] === d)[1];
+  return `<div class="shots"><img src="/assets/designs/shots/${d}-phone.jpg" width="195" height="422" loading="lazy" alt="${name} on a phone: the top of the home page"><img src="/assets/designs/shots/${d}-desktop.jpg" width="440" height="272" loading="lazy" alt="${name} on a desktop screen: the top of the Apple Intelligence page"></div>`;
 };
 const REC = LIVE;
 PAGES['/design/'] = { title: 'Choose a design', mark: 'Design', desc: 'Five visual directions for this guide. Look at each, then tell us which to keep.', raw: true,
   body: () => `<h1>Choose a design</h1>
-<p>Five directions for the same content. Each opens a full working copy of this guide in that design, in light and dark. The live pages use ${esc(DESIGNS.find((d) => d[0] === LIVE)[1])} until the owner picks. These are round 1 drafts and will change after review.</p>
+<p>Five directions for the same content, shown as real screenshots of the pages. Each opens a full working copy of this guide in that design, in light and dark. The live pages use ${esc(DESIGNS.find((d) => d[0] === LIVE)[1])} until the owner picks. These are round 2 drafts, changed after a design review.</p>
 <ul class="picker">
 ${DESIGNS.map(([id, name, text]) => `<li>${IDEA(id)}<h2>${name} ${id === REC ? '<span class="badge">Live now</span>' : ''}</h2><p>${text}</p><div class="acts"><a href="/design/${id}/">Preview ${name}</a><a href="/design/${id}/apple-intelligence/">Preview a content page</a></div></li>`).join('\n')}
 </ul>
@@ -294,14 +285,15 @@ function render(design, base, path, noindex) {
 ${FAMILY}
 <header class="top">
   <a class="name" href="${base}/">Apple as a platform (unofficial)</a>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Show the menu">
+  <label for="nav-toggle" class="nav-btn" aria-hidden="true">Menu</label>
   <nav class="own" aria-label="This guide">
     ${nav}
   </nav>
 </header>
 <aside class="notice" aria-label="Independence notice"><p>${NOTICE}</p></aside>
 <main id="main">
-<div class="mark">${esc(p.mark)}</div>
-${p.body()}
+${p.mark ? `<div class="mark">${esc(p.mark)}</div>\n` : ''}${withToc(p)}
 </main>
 <footer>
 <nav class="site-links" aria-label="About this site">
@@ -315,6 +307,13 @@ ${NOTICE} Read on ${READ}; see <a href="${base}/sources/">sources</a>. A soverei
 </body>
 </html>
 `;
+}
+function withToc(p) {
+  let html = p.body(); const items = [];
+  html = html.replace(/<h2>(.*?)<\/h2>/g, (m, t) => { const text = t.replace(/<[^>]+>/g, '').replace(/\s+(Live now)$/, '').trim(); const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); items.push([id, text]); return `<h2 id="${id}">${t}</h2>`; });
+  if (p.raw || items.length < 3) return html;
+  const toc = `<nav class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul>${items.map(([id, t]) => `<li><a href="#${id}">${esc(t)}</a></li>`).join('')}</ul></nav>`;
+  return html.replace('</h1>', '</h1>\n' + toc);
 }
 const out = (file, s) => { mkdirSync(file.replace(/\/[^/]*$/, ''), { recursive: true }); writeFileSync(file, s); };
 rmSync('site/design', { recursive: true, force: true });

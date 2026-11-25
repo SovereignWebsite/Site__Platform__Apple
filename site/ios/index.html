@@ -45,6 +45,8 @@
 </details>
 <header class="top">
   <a class="name" href="/">Apple as a platform (unofficial)</a>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Show the menu">
+  <label for="nav-toggle" class="nav-btn" aria-hidden="true">Menu</label>
   <nav class="own" aria-label="This guide">
     <a href="/">Home</a>
     <a href="/apple-intelligence/">Apple Intelligence</a>
@@ -60,20 +62,21 @@
 <main id="main">
 <div class="mark">Scope 2</div>
 <h1>iOS as a platform for our work</h1>
-<section><h2>Distribution and the developer account</h2>
+<nav class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#distribution-and-the-developer-account">Distribution and the developer account</a></li><li><a href="#testflight">TestFlight</a></li><li><a href="#on-device-machine-learning">On-device machine learning</a></li><li><a href="#icloud-and-cloudkit">iCloud and CloudKit</a></li><li><a href="#privacy-rules-for-apps">Privacy rules for apps</a></li></ul></nav>
+<section><h2 id="distribution-and-the-developer-account">Distribution and the developer account</h2>
 <ul>
 <li>Apple lists App Store distribution, alternative distribution "in certain regions", and Developer ID with notarisation for Mac apps outside the Mac App Store.<sup class="cite"><a href="/sources/#s13" aria-label="Source 13">[13]</a></sup></li>
 <li>The Apple Developer Program is shown as a "$99 annual membership" (US page), with an Enterprise Program at "$299/year" for private distribution to employees.<sup class="cite"><a href="/sources/#s14" aria-label="Source 14">[14]</a></sup> Prices in other countries: <span class="todo">not stated</span>.</li>
 <li>A free Apple developer account gives beta Xcode and operating systems, device testing, forums and Feedback Assistant. Membership adds TestFlight and App Store distribution.<sup class="cite"><a href="/sources/#s14" aria-label="Source 14">[14]</a></sup></li>
 </ul></section>
-<section><h2>TestFlight</h2>
+<section><h2 id="testflight">TestFlight</h2>
 <ul>
 <li>Up to 100 builds can be shared.<sup class="cite"><a href="/sources/#s11" aria-label="Source 11">[11]</a></sup></li>
 <li>Internal testers: up to 100 members of your team in certain roles. External testers: up to 10,000, by email invite or public link. A tester can use builds on up to 30 devices.<sup class="cite"><a href="/sources/#s11" aria-label="Source 11">[11]</a></sup></li>
 <li>The first build for external testing must be approved by App Review for TestFlight.<sup class="cite"><a href="/sources/#s11" aria-label="Source 11">[11]</a></sup></li>
 <li>A build can be tested for up to 90 days, and the TestFlight app is free. These two points come from a summary, so check the page.<sup class="cite"><a href="/sources/#s12" aria-label="Source 12">[12]</a></sup></li>
 </ul></section>
-<section><h2>On-device machine learning</h2>
+<section><h2 id="on-device-machine-learning">On-device machine learning</h2>
 <p>Apple's machine learning page names Core AI, the Foundation Models framework, Vision, Speech, Core ML, Metal and MLX.<sup class="cite"><a href="/sources/#s10" aria-label="Source 10">[10]</a></sup></p>
 <ul>
 <li>Core AI is "designed to be the best way to bring and run AI models on device", with "zero server dependencies and zero token costs".<sup class="cite"><a href="/sources/#s10" aria-label="Source 10">[10]</a></sup></li>
@@ -81,13 +84,13 @@
 <li>MLX is an open-source array framework.<sup class="cite"><a href="/sources/#s10" aria-label="Source 10">[10]</a></sup></li>
 <li>Core ML's own documentation page returned only its title, so details beyond this: <span class="todo">not stated</span>.</li>
 </ul></section>
-<section><h2>iCloud and CloudKit</h2>
+<section><h2 id="icloud-and-cloudkit">iCloud and CloudKit</h2>
 <ul>
 <li>Apple says CloudKit gives "up to 1PB of storage for your app's public data", and private data is stored in the users' own iCloud accounts.<sup class="cite"><a href="/sources/#s15" aria-label="Source 15">[15]</a></sup></li>
 <li>It names automatic syncing, encrypted fields and the CloudKit Console.<sup class="cite"><a href="/sources/#s15" aria-label="Source 15">[15]</a></sup></li>
 <li>Whether it needs a paid membership: <span class="todo">not stated</span>. Its documentation page returned only its title.</li>
 </ul></section>
-<section><h2>Privacy rules for apps</h2>
+<section><h2 id="privacy-rules-for-apps">Privacy rules for apps</h2>
 <ul>
 <li>Developers must give privacy practice information in App Store Connect to submit new apps and updates, and a privacy policy link is required.<sup class="cite"><a href="/sources/#s16" aria-label="Source 16">[16]</a></sup></li>
 <li>The App Review Guidelines section on privacy (5.1) covers data collection and storage, data use and sharing, health data, kids and location. As summarised for us: personal data may not be used or shared without permission, tracking needs the App Tracking Transparency APIs, and kids' apps should not include third-party analytics or advertising.<sup class="cite"><a href="/sources/#s17" aria-label="Source 17">[17]</a></sup> Read the guidelines before relying on these.</li>

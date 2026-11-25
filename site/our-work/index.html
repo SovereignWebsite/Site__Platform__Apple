@@ -45,6 +45,8 @@
 </details>
 <header class="top">
   <a class="name" href="/">Apple as a platform (unofficial)</a>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Show the menu">
+  <label for="nav-toggle" class="nav-btn" aria-hidden="true">Menu</label>
   <nav class="own" aria-label="This guide">
     <a href="/">Home</a>
     <a href="/apple-intelligence/">Apple Intelligence</a>
@@ -60,20 +62,21 @@
 <main id="main">
 <div class="mark">Scope 3</div>
 <h1>Our own work on Apple</h1>
+<nav class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#where-it-lives">Where it lives</a></li><li><a href="#owner-mode-r6">Owner mode (R6)</a></li><li><a href="#sites-the-sovereign-website-app-r7">Sites, the Sovereign Website app (R7)</a></li><li><a href="#build-and-testflight-state">Build and TestFlight state</a></li></ul></nav>
 <div class="note"><p>Everything on this page was reported to this site by the team's agent a.ios on 25 November 2026 (00:50 UTC), through a.maestro. We have not read the code ourselves. Where it says nothing, this page says <span class="todo">not stated</span>.</p></div>
-<section><h2>Where it lives</h2>
+<section><h2 id="where-it-lives">Where it lives</h2>
 <p>Both features are inside the VoiceDebrief iOS app, in the public repository <a href="https://github.com/VoiceDebrief/VoiceDebrief__App__iOS">github.com/VoiceDebrief/VoiceDebrief__App__iOS</a> (code under Apache 2.0, content under CC BY 4.0). It runs on iPhone and iPad with iOS 26, is written in SwiftUI and uses the Apple SDK only. It uses Apple's on-device models only: SpeechAnalyzer for transcripts and the Foundation Models framework for text. There is no API key and no backend of ours.<sup class="cite"><a href="/sources/#s7" aria-label="Source 7">[7]</a></sup><sup class="cite"><a href="/sources/#s8" aria-label="Source 8">[8]</a></sup></p></section>
-<section><h2>Owner mode (R6)</h2>
+<section><h2 id="owner-mode-r6">Owner mode (R6)</h2>
 <p>A section for one person, the site's owner. It shows every agent from the biggest to the smallest, with its status, what it is doing, what it waits for and its home repository. It also shows the latest websites, videos, briefs and decision slides, and the decisions waiting for the owner. The owner answers there, or uses "talk to this page", typed or spoken, to reach the agent that made it. Decisions and the owner's own actions are listed apart.</p>
 <ul>
 <li>It reads one JSON contract, <code>owner.feed/v1</code>, from three sources: a demo feed with invented data, published public feeds, and the owner's own encrypted vault.</li>
 <li>Answers are sealed to an agent's lane. Live data and sending are limited to devices the owner registers with their own key. The app checks the owner's grant against a pinned owner fingerprint, which is not yet pinned.</li>
 </ul></section>
-<section><h2>Sites, the Sovereign Website app (R7)</h2>
+<section><h2 id="sites-the-sovereign-website-app-r7">Sites, the Sovereign Website app (R7)</h2>
 <p>This is tier 1 of the app. You scan a Sovereign Website's QR code, which carries a key the site's keeper issued and which goes to the Keychain. You see the site in a web view, pick what your comment is about, speak (transcribed on the device) or type, add up to four photos and send. The request is signed and sealed as the site's own send page does it and added to the keeper's lane. The keeper, an agent, answers; the app opens the reply on the device and says when the site has changed.</p>
 <p>Tiers 2 (edits on the device with Apple Intelligence, through tools) and 3 (a site from photos and a theme) are proposed, not built.</p>
 <p>A demo of the Sovereign Website app on iOS is planned for Thursday 26 November 2026.</p></section>
-<section><h2>Build and TestFlight state</h2>
+<section><h2 id="build-and-testflight-state">Build and TestFlight state</h2>
 <ul>
 <li>The work is on the branch <code>work/sites</code> and is green in continuous integration (build plus unit tests on iPhone and iPad simulators) at commit <code>ee83b1a</code>.</li>
 <li>None of it has run on a real device yet.</li>

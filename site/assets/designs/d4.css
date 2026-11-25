@@ -1,6 +1,5 @@
-/* D4 Notebook: monospace, numbered headings, dark first (light follows the system). */
+/* D4 Notebook: monospace, numbered headings, always dark, in light and dark system settings. */
 :root{--bg:#0d0f0c;--fg:#e8efe3;--muted:#a4b49f;--accent:#8fe388;--line:#27302a;--body:16px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-@media (prefers-color-scheme:light){:root{--bg:#f3f6ef;--fg:#14180f;--muted:#465440;--accent:#1c6417;--line:#cdd6c6}}
 .top{max-width:50rem;margin:0 auto;padding:2.4rem 1rem 0;border-bottom:1px dashed var(--line);padding-bottom:.8rem}.own{margin-left:auto}
 .top .name::before{content:"$ ";color:var(--accent)}
 .notice{max-width:50rem;margin:0 auto;border-left:3px solid var(--accent);background:transparent;padding-left:.8rem}
@@ -10,3 +9,9 @@ h1{font-size:clamp(1.8rem,5vw,2.4rem);font-weight:700}
 h2{font-size:1.1rem;counter-increment:s;border-top:1px dashed var(--line);padding-top:1rem}h2::before{content:"0" counter(s) "  ";color:var(--accent)}
 .tiles{grid-template-columns:minmax(0,1fr)}.tiles a{border-radius:0;border-style:dashed}
 table{font-size:.85rem}
+
+:root{color-scheme:dark}
+.family-credit{--fam-fg:#b5b5b5;--fam-strong:#fff;--fam-bg:#1c1c1c}
+.toc{display:block;border:1px dashed var(--line);padding:.5rem 1rem;margin:0 0 1.5rem}
+.toc-title{margin:0;color:var(--accent)}.toc-title::before{content:"$ ls ";}
+.toc ul{list-style:none;padding:0;margin:.3rem 0 0}.toc li{margin:0}.toc li::before{content:"-> ";color:var(--accent)}

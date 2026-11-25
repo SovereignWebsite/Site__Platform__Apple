@@ -12,3 +12,5 @@ h2{font-size:1.9rem;text-transform:uppercase;letter-spacing:-.01em;border-top:6p
 .tiles{grid-template-columns:repeat(auto-fit,minmax(min(14rem,100%),1fr));gap:0;border:4px solid var(--line)}.tiles a{border:0;border-radius:0;border-right:4px solid var(--line);border-bottom:4px solid var(--line);margin:0 -4px -4px 0;padding:1.2rem}
 .tiles a:hover{background:var(--block)}.tiles a:hover span,.tiles a:hover strong{color:var(--onblock)}
 footer{padding:1rem 1.5rem;border-top:6px solid var(--line);margin-top:2rem}
+
+.nav-btn{border-width:3px;border-radius:0;text-transform:uppercase}

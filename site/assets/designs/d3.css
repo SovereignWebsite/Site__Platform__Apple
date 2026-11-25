@@ -10,3 +10,15 @@ h1{font-size:clamp(2.2rem,7vw,3.6rem);letter-spacing:-.02em}
 main>section,main>.note{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:.2rem 1.4rem 1rem;margin:1rem 0}
 main>section h2{margin-top:1rem}
 .tiles{grid-template-columns:repeat(auto-fit,minmax(min(15rem,100%),1fr))}.tiles a{padding:1.4rem}.tiles strong{font-size:1.2rem}
+
+.toc{display:block}.toc-title{margin:0 0 .4rem;font-weight:700;color:var(--fg);font-size:.9rem}
+.toc ul{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;padding:0;margin:0 0 1rem}.toc li{margin:0}
+.toc a{display:block;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.25rem .9rem;text-decoration:none;font-weight:600}
+@media (min-width:56rem){
+main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 1.2rem;align-content:start}
+main>*{grid-column:1/-1}main>section{grid-column:auto}
+main>section:has(table){grid-column:1/-1}
+.tiles li:first-child{grid-column:span 2}
+.tiles{grid-template-columns:repeat(auto-fit,minmax(min(15rem,100%),1fr))}
+}
+@media (max-width:479px){.nav-btn{display:none}.own{display:flex;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;width:100%;padding-bottom:.4rem;margin:0}.own a{white-space:nowrap}}

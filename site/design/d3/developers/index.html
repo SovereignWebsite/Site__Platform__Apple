@@ -46,6 +46,8 @@
 </details>
 <header class="top">
   <a class="name" href="/design/d3/">Apple as a platform (unofficial)</a>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Show the menu">
+  <label for="nav-toggle" class="nav-btn" aria-hidden="true">Menu</label>
   <nav class="own" aria-label="This guide">
     <a href="/design/d3/">Home</a>
     <a href="/design/d3/apple-intelligence/">Apple Intelligence</a>
@@ -61,8 +63,9 @@
 <main id="main">
 <div class="mark">Scope 1</div>
 <h1>For developers: the Foundation Models framework</h1>
+<nav class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#what-it-offers">What it offers</a></li><li><a href="#cost-and-limits">Cost and limits</a></li><li><a href="#other-things-an-app-can-plug-into">Other things an app can plug into</a></li><li><a href="#what-apple-s-pages-do-not-say">What Apple's pages do not say</a></li></ul></nav>
 <p>Apple calls it "a native Swift API that gives you direct access to Apple Foundation Models, on device and in Private Cloud Compute".<sup class="cite"><a href="/design/d3/sources/#s7" aria-label="Source 7">[7]</a></sup> It is also described as the way to reach "the same on-device model that powers Apple Intelligence".<sup class="cite"><a href="/design/d3/sources/#s9" aria-label="Source 9">[9]</a></sup></p>
-<section><h2>What it offers</h2>
+<section><h2 id="what-it-offers">What it offers</h2>
 <ul>
 <li>Named capabilities: guided generation, tool calling, image understanding and Dynamic Profiles.<sup class="cite"><a href="/design/d3/sources/#s8" aria-label="Source 8">[8]</a></sup></li>
 <li>Dynamic Profiles are "declarative APIs for continuously updating your session's model, tools, and instructions on the fly". Each profile has its own model, temperature, reasoning level and toolset, and the session transcript is shared across switches.<sup class="cite"><a href="/design/d3/sources/#s8" aria-label="Source 8">[8]</a></sup></li>
@@ -71,15 +74,15 @@
 <li>Also named: an Evaluations framework, an <code>fm</code> command line tool in macOS 27 and a Python SDK.<sup class="cite"><a href="/design/d3/sources/#s7" aria-label="Source 7">[7]</a></sup><sup class="cite"><a href="/design/d3/sources/#s8" aria-label="Source 8">[8]</a></sup></li>
 <li>Vision tools such as text recognition and barcode reading are described as on-device.<sup class="cite"><a href="/design/d3/sources/#s9" aria-label="Source 9">[9]</a></sup></li>
 </ul></section>
-<section><h2>Cost and limits</h2>
+<section><h2 id="cost-and-limits">Cost and limits</h2>
 <ul>
 <li>Developers in the small business programme with fewer than 2 million first-time downloads can use Apple Foundation Models on Private Cloud Compute "at no cloud API cost".<sup class="cite"><a href="/design/d3/sources/#s7" aria-label="Source 7">[7]</a></sup><sup class="cite"><a href="/design/d3/sources/#s8" aria-label="Source 8">[8]</a></sup></li>
 <li>Some server-side features have daily usage limits, and expanded access "will be available for a fee in the future". The fee: <span class="todo">not stated</span>.<sup class="cite"><a href="/design/d3/sources/#s8" aria-label="Source 8">[8]</a></sup></li>
 <li>Apple says users' data in Private Cloud Compute "is not stored or accessible to Apple or anyone else".<sup class="cite"><a href="/design/d3/sources/#s8" aria-label="Source 8">[8]</a></sup></li>
 </ul></section>
-<section><h2>Other things an app can plug into</h2>
+<section><h2 id="other-things-an-app-can-plug-into">Other things an app can plug into</h2>
 <p>Apple's developer page also names App Intents, Image Playground, Shortcuts, Visual Intelligence, Write with Siri and Genmoji.<sup class="cite"><a href="/design/d3/sources/#s7" aria-label="Source 7">[7]</a></sup> Image Playground images are "generated on Private Cloud Compute, so photos are never stored or shared".<sup class="cite"><a href="/design/d3/sources/#s7" aria-label="Source 7">[7]</a></sup></p></section>
-<section><h2>What Apple's pages do not say</h2>
+<section><h2 id="what-apple-s-pages-do-not-say">What Apple's pages do not say</h2>
 <p>The minimum operating system version, the device requirements for the framework, how to check whether the model is available, class names and code samples: <span class="todo">not stated</span>. The framework's documentation page returned only its title when we read it, so we have not copied any code from it.</p></section>
 </main>
 <footer>
