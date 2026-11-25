@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcription | Apple as a platform (unofficial)</title>
+<meta name="description" content="Apple's on-device speech to text: SpeechAnalyzer for developers and Dictation for people, what Apple's pages say it needs, and what they leave out.">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Apple as a platform (unofficial)">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://apple.platform.sovereignweb.site/design/d3/transcription/">
+<meta property="og:title" content="Transcription">
+<meta property="og:description" content="Apple's on-device speech to text: SpeechAnalyzer for developers and Dictation for people, what Apple's pages say it needs, and what they leave out.">
+<meta property="og:image" content="https://apple.platform.sovereignweb.site/assets/share/card-1200x630.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Apple as a platform (unofficial)">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Transcription">
+<meta name="twitter:description" content="Apple's on-device speech to text: SpeechAnalyzer for developers and Dictation for people, what Apple's pages say it needs, and what they leave out.">
+<meta name="twitter:image" content="https://apple.platform.sovereignweb.site/assets/share/card-1200x630.jpg">
+<link rel="canonical" href="https://apple.platform.sovereignweb.site/design/d3/transcription/">
+<link rel="stylesheet" href="/assets/designs/base.css">
+<link rel="stylesheet" href="/assets/designs/d3.css">
+</head>
+<body class="d3">
+<a class="skip" href="#main">Skip to content</a>
+<details class="family-credit">
+  <summary>Sovereign Website</summary>
+  <ul>
+    <li><a href="/start/">Start here</a></li>
+    <li><a href="/agents/">Use with your AI</a></li>
+    <li class="family-gap"><a href="/admin/">How this site was made</a></li>
+    <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
+    <li><a href="https://sovereignwebsite.org/">Principles</a></li>
+    <li><a href="https://sovereignwebsite.site/">Hosted</a></li>
+    <li><a href="https://hub.sovereignweb.site/">Hub</a></li>
+    <li><a href="https://agents.sovereignweb.site/">Agents</a></li>
+    <li><a href="https://vault.sovereignwebsite.site/">Vault</a></li>
+    <li><a href="https://agenticcells.ai/">AgentiCCells</a></li>
+    <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
+    <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
+  </ul>
+</details>
+<header class="top">
+  <a class="name" href="/design/d3/">Apple as a platform (unofficial)</a>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Show the menu">
+  <label for="nav-toggle" class="nav-btn" aria-hidden="true">Menu</label>
+  <nav class="own" aria-label="This guide">
+    <a href="/design/d3/">Home</a>
+    <a href="/design/d3/apple-intelligence/">Apple Intelligence</a>
+    <a href="/design/d3/models/">Models</a>
+    <a href="/design/d3/developers/">For developers</a>
+    <a href="/design/d3/transcription/" aria-current="page">Transcription</a>
+    <a href="/design/d3/ios/">iOS platform</a>
+    <a href="/design/d3/our-work/">Our work</a>
+    <a href="/design/d3/sources/">Sources</a>
+    <a href="/design/">Designs</a>
+  </nav>
+</header>
+<aside class="notice" aria-label="Independence notice"><p>An independent Sovereign Website guide. Not Apple's site.</p></aside>
+<main id="main">
+<div class="mark">Scope 1</div>
+<h1>Transcription on Apple devices</h1>
+<nav class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#for-developers-speechanalyzer">For developers: SpeechAnalyzer</a></li><li><a href="#which-devices">Which devices</a></li><li><a href="#languages">Languages</a></li><li><a href="#for-people-dictation-and-notes">For people: Dictation, and Notes</a></li><li><a href="#what-our-own-app-uses">What our own app uses</a></li><li><a href="#what-apple-s-pages-do-not-say">What Apple's pages do not say</a></li></ul></nav>
+<p>Apple's developer pages say that with SpeechAnalyzer "you can bring advanced, on-device transcription to your app".<sup class="cite"><a href="/design/d3/sources/#s10" aria-label="Source 10">[10]</a></sup> This page sets out what Apple's own pages say about it, and what they do not.</p>
+<section><h2 id="for-developers-speechanalyzer">For developers: SpeechAnalyzer</h2>
+<ul>
+<li>Apple's WWDC25 session calls it "the next evolution of our speech-to-text API", introduced in iOS 26 and following the older SFSpeechRecognizer from iOS 10.<sup class="cite"><a href="/design/d3/sources/#s18" aria-label="Source 18">[18]</a></sup></li>
+<li>It runs on the device: "transcription is entirely on device but the models need to be fetched".<sup class="cite"><a href="/design/d3/sources/#s18" aria-label="Source 18">[18]</a></sup></li>
+<li>The model is kept in system storage, and does not add to the app's download size, its storage or its memory use. The system installs updates itself.<sup class="cite"><a href="/design/d3/sources/#s18" aria-label="Source 18">[18]</a></sup></li>
+<li>Apple Intelligence is not required for transcription. In the session's demo it is used for a separate step, generating a title.<sup class="cite"><a href="/design/d3/sources/#s18" aria-label="Source 18">[18]</a></sup></li>
+<li>An app can hold support for "a limited number of languages at a time". The number: <span class="todo">not stated</span>.<sup class="cite"><a href="/design/d3/sources/#s18" aria-label="Source 18">[18]</a></sup></li>
+<li>Apple names these types: SpeechAnalyzer, SpeechTranscriber, DictationTranscriber and AssetInventory. DictationTranscriber supports the same languages, model and devices as the older on-device SFSpeechRecognizer.<sup class="cite"><a href="/design/d3/sources/#s18" aria-label="Source 18">[18]</a></sup></li>
+</ul></section>
+<section><h2 id="which-devices">Which devices</h2>
+<p>The session says SpeechTranscriber "is available for all platforms but watchOS with certain hardware requirements". The hardware requirements: <span class="todo">not stated</span>.<sup class="cite"><a href="/design/d3/sources/#s18" aria-label="Source 18">[18]</a></sup> Apple's machine learning page lists speech among features for iPhone, iPad, Apple Vision Pro, Mac and Apple Watch, without versions.<sup class="cite"><a href="/design/d3/sources/#s10" aria-label="Source 10">[10]</a></sup></p></section>
+<section><h2 id="languages">Languages</h2>
+<p>Apple says speech recognition covers "a variety of languages".<sup class="cite"><a href="/design/d3/sources/#s10" aria-label="Source 10">[10]</a></sup> The session says the transcriber handles a set of languages "with more to come", and its transcript text does not give the list.<sup class="cite"><a href="/design/d3/sources/#s18" aria-label="Source 18">[18]</a></sup> The list of languages: <span class="todo">not stated</span>.</p></section>
+<section><h2 id="for-people-dictation-and-notes">For people: Dictation, and Notes</h2>
+<ul>
+<li>Apple's iPhone guide says Dictation is processed on the iPhone in many languages and needs no internet connection. Dictating into a search field may send the text to a search engine. These points come from a summary of the page.<sup class="cite"><a href="/design/d3/sources/#s19" aria-label="Source 19">[19]</a></sup></li>
+<li>Better spelling, punctuation and capitalisation need Apple Intelligence and are described as English on newer iPhones. Basic Dictation does not. Also from the summary.<sup class="cite"><a href="/design/d3/sources/#s19" aria-label="Source 19">[19]</a></sup></li>
+<li>Apple lists "Notes transcription summaries" for iPhone, iPad, Mac and Apple Vision Pro, among features that work with iOS 26 and later.<sup class="cite"><a href="/design/d3/sources/#s3" aria-label="Source 3">[3]</a></sup></li>
+<li>Dictation's own device and operating system requirements, and its language list: <span class="todo">not stated</span>.</li>
+</ul></section>
+<section><h2 id="what-our-own-app-uses">What our own app uses</h2>
+<p>The team behind the VoiceDebrief iOS app reports that it uses SpeechAnalyzer to transcribe speech on the device, with no key and no server of ours. See <a href="/design/d3/our-work/">Our own work</a>.</p></section>
+<section><h2 id="what-apple-s-pages-do-not-say">What Apple's pages do not say</h2>
+<p>The hardware requirements, the languages, the number of languages an app may hold, and anything in the Speech documentation: <span class="todo">not stated</span>. Those documentation pages returned only their titles when we read them.</p></section>
+</main>
+<footer>
+<nav class="site-links" aria-label="About this site">
+  <a href="/start/">Start here</a>
+  <a href="/agents/">Use with your AI</a>
+  <a href="/admin/">How this site was made</a>
+  <a href="/policy/">How this site is governed</a>
+</nav>
+An independent Sovereign Website guide. Not Apple's site. Read on 25 November 2026; see <a href="/design/d3/sources/">sources</a>. A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__Platform__Apple">github.com/SovereignWebsite/Site__Platform__Apple</a>.
+</footer>
+</body>
+</html>

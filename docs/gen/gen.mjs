@@ -31,6 +31,8 @@ const SRC = [
   ['s15', 'https://developer.apple.com/icloud/cloudkit/', 'CloudKit overview', 'No date shown', ''],
   ['s16', 'https://developer.apple.com/app-store/app-privacy-details/', 'App privacy details for the App Store', 'No date shown', ''],
   ['s17', 'https://developer.apple.com/app-store/review/guidelines/', 'App Review Guidelines, section 5.1 (privacy)', 'Last updated 16 October 2026, as reported by the reader', 'The section headings and data-use rules come from a summary, not the verbatim page. Check Apple’s page before relying on them.'],
+  ['s18', 'https://developer.apple.com/videos/play/wwdc2025/277/', 'WWDC25 session: Bring advanced speech-to-text to your app with SpeechAnalyzer (we read its transcript text, not the video)', 'No date shown (a WWDC25 session)', 'The session speaks of iOS 26. It is a year-old talk, so check Apple\u2019s current documentation.'],
+  ['s19', 'https://support.apple.com/en-gb/guide/iphone/iph2c0651d2/ios', 'Dictate text on iPhone (iPhone User Guide, UK)', 'No date shown; the page refers to iOS 27', 'Only the start of this page was read verbatim. The on-device, internet, search-field and Apple Intelligence points come from a summary of the rest. Check Apple\u2019s page before relying on them.'],
 ];
 // Pages we opened that gave us no usable text. Listed so nothing is implied that we did not read.
 const EMPTY = [
@@ -39,10 +41,12 @@ const EMPTY = [
   ['https://developer.apple.com/machine-learning/core-ml/', 'Core ML overview: only the title came back'],
   ['https://developer.apple.com/documentation/cloudkit', 'CloudKit documentation: only the title came back'],
   ['https://developer.apple.com/documentation/bundleresources/privacy-manifest-files', 'Privacy manifest files: only the title came back'],
+  ['https://developer.apple.com/documentation/speech/speechanalyzer', 'SpeechAnalyzer documentation: only the title came back'],
+  ['https://developer.apple.com/documentation/speech', 'Speech framework documentation: only the title came back'],
   ['https://security.apple.com/documentation/private-cloud-compute', 'Private Cloud Compute documentation: only the word Documentation came back'],
   ['https://machinelearning.apple.com/', 'Apple machine learning home page: no foundation model post listed'],
 ];
-const NAV = [['/', 'Home'], ['/apple-intelligence/', 'Apple Intelligence'], ['/models/', 'Models'], ['/developers/', 'For developers'], ['/ios/', 'iOS platform'], ['/our-work/', 'Our work'], ['/sources/', 'Sources'], ['/design/', 'Designs']];
+const NAV = [['/', 'Home'], ['/apple-intelligence/', 'Apple Intelligence'], ['/models/', 'Models'], ['/developers/', 'For developers'], ['/transcription/', 'Transcription'], ['/ios/', 'iOS platform'], ['/our-work/', 'Our work'], ['/sources/', 'Sources'], ['/design/', 'Designs']];
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const FAMILY = `<details class="family-credit">
   <summary>Sovereign Website</summary>
@@ -73,7 +77,7 @@ const PAGES = {
     body: () => `<h1>Apple as a platform</h1>
 <p>What Apple Intelligence is, what it gives a developer, and how iOS works as a platform for our own work. Every fact links to a page on Apple's own sites, with the date we read it. Where Apple does not say, this guide says ${NS}.</p>
 <nav class="guide-box" aria-label="In this guide"><p class="toc-title">In this guide</p><ol>
-<li><a href="${B}/apple-intelligence/">Apple Intelligence</a></li><li><a href="${B}/models/">The models</a></li><li><a href="${B}/developers/">For developers</a></li><li><a href="${B}/ios/">iOS as a platform</a></li><li><a href="${B}/our-work/">Our own work</a></li><li><a href="${B}/sources/">Sources</a></li></ol></nav>
+<li><a href="${B}/apple-intelligence/">Apple Intelligence</a></li><li><a href="${B}/models/">The models</a></li><li><a href="${B}/developers/">For developers</a></li><li><a href="${B}/transcription/">Transcription</a></li><li><a href="${B}/ios/">iOS as a platform</a></li><li><a href="${B}/our-work/">Our own work</a></li><li><a href="${B}/sources/">Sources</a></li></ol></nav>
 <dl class="facts" aria-label="Three facts from Apple's pages">
 <div><dt>Works on</dt><dd>iPhone 15 Pro and newer, iPad and Mac with M1 or newer, Apple Vision Pro.<span class="src">Apple Support, published 8 November 2026.${c('s3')}</span></dd></div>
 <div><dt>Languages</dt><dd>16, including English, French, German, Japanese, Korean and Spanish.<span class="src">Apple Support, published 8 November 2026.${c('s3')}</span></dd></div>
@@ -83,6 +87,7 @@ const PAGES = {
 <li><a href="${B}/apple-intelligence/"><strong>Apple Intelligence</strong><span>What it is, which devices, languages and regions, and its limits.</span></a></li>
 <li><a href="${B}/models/"><strong>The models</strong><span>On-device, server and Private Cloud Compute.</span></a></li>
 <li><a href="${B}/developers/"><strong>For developers</strong><span>The Foundation Models framework and what an app can do.</span></a></li>
+<li><a href="${B}/transcription/"><strong>Transcription</strong><span>Apple's on-device speech to text, and what it needs.</span></a></li>
 <li><a href="${B}/ios/"><strong>iOS as a platform</strong><span>App Store, TestFlight, on-device ML, iCloud and privacy rules.</span></a></li>
 <li><a href="${B}/our-work/"><strong>Our own work</strong><span>The Sovereign Website app and the iOS demo. Only what is confirmed.</span></a></li>
 <li><a href="${B}/sources/"><strong>Sources</strong><span>Every page we read, with the date we read it.</span></a></li>
@@ -161,6 +166,34 @@ const PAGES = {
 <p>Apple's developer page also names App Intents, Image Playground, Shortcuts, Visual Intelligence, Write with Siri and Genmoji.${c('s7')} Image Playground images are "generated on Private Cloud Compute, so photos are never stored or shared".${c('s7')}</p></section>
 <section><h2>What Apple's pages do not say</h2>
 <p>The minimum operating system version, the device requirements for the framework, how to check whether the model is available, class names and code samples: ${NS}. The framework's documentation page returned only its title when we read it, so we have not copied any code from it.</p></section>` },
+
+  '/transcription/': { title: 'Transcription', mark: 'Scope 1', desc: "Apple's on-device speech to text: SpeechAnalyzer for developers and Dictation for people, what Apple's pages say it needs, and what they leave out.",
+    body: () => `<h1>Transcription on Apple devices</h1>
+<p>Apple's developer pages say that with SpeechAnalyzer "you can bring advanced, on-device transcription to your app".${c('s10')} This page sets out what Apple's own pages say about it, and what they do not.</p>
+<section><h2>For developers: SpeechAnalyzer</h2>
+<ul>
+<li>Apple's WWDC25 session calls it "the next evolution of our speech-to-text API", introduced in iOS 26 and following the older SFSpeechRecognizer from iOS 10.${c('s18')}</li>
+<li>It runs on the device: "transcription is entirely on device but the models need to be fetched".${c('s18')}</li>
+<li>The model is kept in system storage, and does not add to the app's download size, its storage or its memory use. The system installs updates itself.${c('s18')}</li>
+<li>Apple Intelligence is not required for transcription. In the session's demo it is used for a separate step, generating a title.${c('s18')}</li>
+<li>An app can hold support for "a limited number of languages at a time". The number: ${NS}.${c('s18')}</li>
+<li>Apple names these types: SpeechAnalyzer, SpeechTranscriber, DictationTranscriber and AssetInventory. DictationTranscriber supports the same languages, model and devices as the older on-device SFSpeechRecognizer.${c('s18')}</li>
+</ul></section>
+<section><h2>Which devices</h2>
+<p>The session says SpeechTranscriber "is available for all platforms but watchOS with certain hardware requirements". The hardware requirements: ${NS}.${c('s18')} Apple's machine learning page lists speech among features for iPhone, iPad, Apple Vision Pro, Mac and Apple Watch, without versions.${c('s10')}</p></section>
+<section><h2>Languages</h2>
+<p>Apple says speech recognition covers "a variety of languages".${c('s10')} The session says the transcriber handles a set of languages "with more to come", and its transcript text does not give the list.${c('s18')} The list of languages: ${NS}.</p></section>
+<section><h2>For people: Dictation, and Notes</h2>
+<ul>
+<li>Apple's iPhone guide says Dictation is processed on the iPhone in many languages and needs no internet connection. Dictating into a search field may send the text to a search engine. These points come from a summary of the page.${c('s19')}</li>
+<li>Better spelling, punctuation and capitalisation need Apple Intelligence and are described as English on newer iPhones. Basic Dictation does not. Also from the summary.${c('s19')}</li>
+<li>Apple lists "Notes transcription summaries" for iPhone, iPad, Mac and Apple Vision Pro, among features that work with iOS 26 and later.${c('s3')}</li>
+<li>Dictation's own device and operating system requirements, and its language list: ${NS}.</li>
+</ul></section>
+<section><h2>What our own app uses</h2>
+<p>The team behind the VoiceDebrief iOS app reports that it uses SpeechAnalyzer to transcribe speech on the device, with no key and no server of ours. See <a href="${B}/our-work/">Our own work</a>.</p></section>
+<section><h2>What Apple's pages do not say</h2>
+<p>The hardware requirements, the languages, the number of languages an app may hold, and anything in the Speech documentation: ${NS}. Those documentation pages returned only their titles when we read them.</p></section>` },
 
   '/ios/': { title: 'iOS as a platform', mark: 'Scope 2', desc: 'App Store and TestFlight distribution, on-device machine learning, iCloud and CloudKit, and privacy rules, from Apple pages read on 25 November 2026.',
     body: () => `<h1>iOS as a platform for our work</h1>
